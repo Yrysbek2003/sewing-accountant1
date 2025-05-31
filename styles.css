@@ -1,0 +1,1302 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7fafc;
+    color: #1a202c;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+body.midnight {
+    background-color: #0f172a;
+    color: #d1d5db;
+}
+
+body.forest {
+    background-color: #1a2e2b;
+    color: #d1d5db;
+}
+
+body.slate {
+    background-color: #2d3748;
+    color: #d1d5db;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Шапка */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body.dark header,
+body.midnight header,
+body.forest header,
+body.slate header {
+    background-color: #2d3748;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#title {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.header-btn {
+    padding: 0.4rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #edf2f7;
+    color: #1a202c;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark .header-btn,
+body.midnight .header-btn,
+body.forest .header-btn,
+body.slate .header-btn {
+    background-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.midnight .header-btn {
+    background-color: #1e40af;
+}
+
+body.forest .header-btn {
+    background-color: #2f855a;
+}
+
+body.slate .header-btn {
+    background-color: #4b5e7e;
+}
+
+.header-btn:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.1);
+}
+
+body.dark .header-btn:hover,
+body.midnight .header-btn:hover,
+body.forest .header-btn:hover,
+body.slate .header-btn:hover {
+    background-color: #718096;
+}
+
+.header-btn.compact-btn {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.header-btn.compact-btn::after {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1a202c;
+    color: #ffffff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.header-btn.compact-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Глобальный фильтр */
+.global-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.filter-btn {
+    padding: 0.4rem 0.8rem;
+    background-color: #6366f1;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #4f46e5;
+    transform: scale(1.05);
+}
+
+/* Вкладки */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+body.dark .tabs,
+body.midnight .tabs,
+body.forest .tabs,
+body.slate .tabs {
+    background-color: #2d3748;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #edf2f7;
+    color: #1a202c;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark .tab-btn,
+body.midnight .tab-btn,
+body.forest .tab-btn,
+body.slate .tab-btn {
+    background-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.tab-btn:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.05);
+}
+
+body.dark .tab-btn:hover,
+body.midnight .tab-btn:hover,
+body.forest .tab-btn:hover,
+body.slate .tab-btn:hover {
+    background-color: #718096;
+}
+
+.tab-btn.active {
+    background-color: #6366f1;
+    color: #ffffff;
+}
+
+body.midnight .tab-btn.active {
+    background-color: #3b82f6;
+}
+
+body.forest .tab-btn.active {
+    background-color: #34d399;
+}
+
+body.slate .tab-btn.active {
+    background-color: #60a5fa;
+}
+
+.tab-btn.active:hover {
+    background-color: #4f46e5;
+}
+
+.tab-btn.compact-tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+
+/* Стили для новых полей */
+.input-group select#taskPriority,
+.input-group input#taskDeadline,
+.input-group textarea#taskComment,
+.input-group input#workerPhone,
+.input-group input#workerHireDate,
+.input-group select#workerStatus {
+    flex: 1;
+    min-width: 120px;
+}
+
+.input-group textarea#taskComment {
+    min-height: 50px;
+}
+
+/* Стили для фильтров */
+.filter-group select#taskPriorityFilter,
+.filter-group select#taskStatusFilter,
+.filter-group select#workerStatusFilter {
+    padding: 0.4rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+body.dark .filter-group select#taskPriorityFilter,
+body.dark .filter-group select#taskStatusFilter,
+body.dark .filter-group select#workerStatusFilter,
+body.midnight .filter-group select#taskPriorityFilter,
+body.midnight .filter-group select#taskStatusFilter,
+body.midnight .filter-group select#workerStatusFilter,
+body.forest .filter-group select#taskPriorityFilter,
+body.forest .filter-group select#taskStatusFilter,
+body.forest .filter-group select#workerStatusFilter,
+body.slate .filter-group select#taskPriorityFilter,
+body.slate .filter-group select#taskStatusFilter,
+body.slate .filter-group select#workerStatusFilter {
+    border-color: #4a5568;
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+/* Контент вкладок */
+.tab-content {
+    display: none;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    margin: 0.5rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.dark .tab-content,
+body.midnight .tab-content,
+body.forest .tab-content,
+body.slate .tab-content {
+    background-color: #2d3748;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.midnight .tab-content {
+    background-color: #1e293b;
+}
+
+body.forest .tab-content {
+    background-color: #2d4a47;
+}
+
+body.slate .tab-content {
+    background-color: #3b4a6b;
+}
+
+.tab-content.active {
+    display: block;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+body.dark .modal-content,
+body.midnight .modal-content,
+body.forest .modal-content,
+body.slate .modal-content {
+    background-color: #2d3748;
+}
+
+body.midnight .modal-content {
+    background-color: #1e293b;
+}
+
+body.forest .modal-content {
+    background-color: #2d4a47;
+}
+
+body.slate .modal-content {
+    background-color: #3b4a6b;
+}
+
+.modal-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+.modal-footer {
+    padding-top: 0.75rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+body.dark .modal-footer,
+body.midnight .modal-footer,
+body.forest .modal-footer,
+body.slate .modal-footer {
+    border-color: #4a5568;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Улучшенный дизайн авторизации */
+.auth-modal .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .auth-modal .modal-content,
+body.midnight .auth-modal .modal-content,
+body.forest .auth-modal .modal-content,
+body.slate .auth-modal .modal-content {
+    background: rgba(45, 55, 72, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-content h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark .auth-input,
+body.midnight .auth-input,
+body.forest .auth-input,
+body.slate .auth-input {
+    border-color: #4a5568;
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.auth-input:focus {
+    border-color: #6366f1;
+    transform: scale(1.02);
+}
+
+/* Поле пароля с иконкой глаза */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container .auth-input {
+    padding-right: 2.2rem;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-75%);
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+body.dark .eye-icon,
+body.midnight .eye-icon,
+body.forest .eye-icon,
+body.slate .eye-icon {
+    color: #d1d5db;
+    background-color: #4a5568;
+}
+
+.eye-icon:hover {
+    color: #6366f1;
+}
+
+body.dark .eye-icon:hover,
+body.midnight .eye-icon:hover,
+body.forest .eye-icon:hover,
+body.slate .eye-icon:hover {
+    background-color: #718096;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.auth-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-btn.primary {
+    background-color: #6366f1;
+    color: #ffffff;
+}
+
+body.midnight .auth-btn.primary {
+    background-color: #3b82f6;
+}
+
+body.forest .auth-btn.primary {
+    background-color: #34d399;
+}
+
+body.slate .auth-btn.primary {
+    background-color: #60a5fa;
+}
+
+.auth-btn.primary:hover {
+    background-color: #4f46e5;
+    transform: scale(1.05);
+}
+
+.auth-btn.secondary {
+    background-color: #edf2f7;
+    color: #1a202c;
+}
+
+body.dark .auth-btn.secondary,
+body.midnight .auth-btn.secondary,
+body.forest .auth-btn.secondary,
+body.slate .auth-btn.secondary {
+    background-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.auth-btn.secondary:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.05);
+}
+
+body.dark .auth-btn.secondary:hover,
+body.midnight .auth-btn.secondary:hover,
+body.forest .auth-btn.secondary:hover,
+body.slate .auth-btn.secondary:hover {
+    background-color: #718096;
+}
+
+/* Анимации */
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-btn {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.animate-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.animate-btn:active {
+    transform: scale(0.95);
+}
+
+.animate-select, .animate-input {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark .animate-select,
+body.midnight .animate-select,
+body.forest .animate-select,
+body.slate .animate-select,
+body.dark .animate-input,
+body.midnight .animate-input,
+body.forest .animate-input,
+body.slate .animate-input {
+    border-color: #4a5568;
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.animate-select:focus, .animate-input:focus {
+    border-color: #6366f1;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.animate-main {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-tab {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    display: none;
+    z-index: 3000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.active {
+    display: block;
+    animation: fadeInOut 3s ease;
+}
+
+.notification.success {
+    background-color: #34d399;
+    color: #ffffff;
+}
+
+.notification.error {
+    background-color: #f87171;
+    color: #ffffff;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* Загрузка */
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.8rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 4000;
+    transition: opacity 0.3s ease;
+}
+
+body.dark .loading,
+body.midnight .loading,
+body.forest .loading,
+body.slate .loading {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+.loading.active {
+    display: block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Дашборд */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+body.dark .dashboard-card,
+body.midnight .dashboard-card,
+body.forest .dashboard-card,
+body.slate .dashboard-card {
+    background-color: #2d3748;
+}
+
+body.midnight .dashboard-card {
+    background-color: #1e293b;
+}
+
+body.forest .dashboard-card {
+    background-color: #2d4a47;
+}
+
+body.slate .dashboard-card {
+    background-color: #3b4a6b;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.dashboard-card p {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.dashboard-chart {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Группы ввода */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    align-items: center;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 0.6rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark .input-group input,
+body.dark .input-group select,
+body.dark .input-group textarea,
+body.midnight .input-group input,
+body.midnight .input-group select,
+body.midnight .input-group textarea,
+body.forest .input-group input,
+body.forest .input-group select,
+body.forest .input-group textarea,
+body.slate .input-group input,
+body.slate .input-group select,
+body.slate .input-group textarea {
+    border-color: #4a5568;
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #6366f1;
+    transform: scale(1.02);
+}
+
+.input-group textarea {
+    width: 100%;
+    min-height: 70px;
+    resize: vertical;
+}
+
+.input-group button {
+    padding: 0.6rem 1.2rem;
+    background-color: #6366f1;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+}
+
+body.midnight .input-group button {
+    background-color: #3b82f6;
+}
+
+body.forest .input-group button {
+    background-color: #34d399;
+}
+
+body.slate .input-group button {
+    background-color: #60a5fa;
+}
+
+/* Списки */
+ul {
+    list-style: none;
+}
+
+ul li {
+    padding: 0.6rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideInList 0.3s ease-out;
+}
+
+body.dark ul li,
+body.midnight ul li,
+body.forest ul li,
+body.slate ul li {
+    border-color: #4a5568;
+}
+
+ul li button {
+    background: none;
+    border: none;
+    color: #f87171;
+    transition: color 0.3s ease;
+}
+
+ul li button:hover {
+    color: #ef4444;
+}
+
+@keyframes slideInList {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Фильтры */
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    align-items: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+.filter-group label {
+    font-weight: 500;
+}
+
+.custom-date, .custom-select {
+    padding: 0.4rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark .custom-date,
+body.midnight .custom-date,
+body.forest .custom-date,
+body.slate .custom-date,
+body.dark .custom-select,
+body.midnight .custom-select,
+body.forest .custom-select,
+body.slate .custom-select {
+    border-color: #4a5568;
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.custom-date:focus, .custom-select:focus {
+    border-color: #6366f1;
+    transform: scale(1.02);
+}
+
+/* Отчет */
+#reportOutput p {
+    margin-bottom: 0.4rem;
+}
+
+#reportOutput .category {
+    font-weight: 600;
+    margin-top: 0.8rem;
+}
+
+#reportOutput .negative {
+    color: #f87171;
+}
+
+body.dark #reportOutput .negative,
+body.midnight #reportOutput .negative,
+body.forest #reportOutput .negative,
+body.slate #reportOutput .negative {
+    color: #ef4444;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.pdf-btn, .excel-btn, .clear-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-btn {
+    background-color: #6366f1;
+    color: #ffffff;
+}
+
+body.midnight .pdf-btn {
+    background-color: #3b82f6;
+}
+
+body.forest .pdf-btn {
+    background-color: #34d399;
+}
+
+body.slate .pdf-btn {
+    background-color: #60a5fa;
+}
+
+.pdf-btn:hover {
+    background-color: #4f46e5;
+    transform: scale(1.05);
+}
+
+.excel-btn {
+    background-color: #34d399;
+    color: #ffffff;
+}
+
+.excel-btn:hover {
+    background-color: #10b981;
+    transform: scale(1.05);
+}
+
+.clear-btn {
+    background-color: #f87171;
+    color: #ffffff;
+}
+
+.clear-btn:hover {
+    background-color: #ef4444;
+    transform: scale(1.05);
+}
+
+
+/* Увеличение размера элементов списка задач */
+#workerTasksList li {
+    font-size: 1.1rem; /* Увеличенный шрифт */
+    padding: 1rem; /* Большие отступы */
+    margin-bottom: 0.75rem; /* Больший отступ между задачами */
+    line-height: 1.5; /* Улучшенная читаемость */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Увеличение размера кнопок */
+#workerTasksList li button {
+    padding: 0.5rem 0.75rem; /* Большие кнопки */
+    font-size: 1rem; /* Увеличенный шрифт кнопок */
+    margin-left: 0.5rem;
+    border-radius: 6px;
+}
+
+/* Увеличение размера иконок в кнопках */
+#workerTasksList li button i {
+    font-size: 1.2rem;
+}
+
+/* Увеличение размера модального окна для компьютеров */
+@media (min-width: 768px) {
+    #workerTasksModal .modal-content {
+        width: 80vw; /* Увеличенная ширина (80% ширины экрана) */
+        max-width: 1000px; /* Максимальная ширина */
+        height: 80vh; /* Увеличенная высота (80% высоты экрана) */
+        max-height: 900px; /* Максимальная высота */
+    }
+
+    #workerTasksModal .modal-scrollable {
+        max-height: calc(80vh - 150px); /* Учитываем заголовок и футер */
+    }
+
+    #workerTasksModal .input-group select,
+    #workerTasksModal .input-group input,
+    #workerTasksModal .input-group textarea,
+    #workerTasksModal .input-group button {
+        padding: 0.7rem; /* Увеличенные поля ввода */
+        font-size: 1.1rem; /* Увеличенный шрифт */
+    }
+
+    #workerTasksModal .input-group textarea {
+        min-height: 100px; /* Увеличенная высота текстового поля */
+    }
+
+    #workerTasksModal .filter-group select {
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+}
+
+/* Увеличение модального окна входа для компьютеров */
+@media (min-width: 768px) {
+    #authModal .modal-content.auth-content {
+        width: 60vw;
+        max-width: 500px;
+        height: 60vh;
+        max-height: 500px;
+        padding: 2rem; /* Увеличенные внутренние отступы */
+    }
+
+    #authModal .auth-input,
+    #authModal .auth-btn {
+        padding: 0.7rem;
+        font-size: 1.1rem;
+    }
+
+    #authModal .auth-buttons {
+        margin-top: 1.5rem; /* Отступ для кнопок */
+    }
+
+    #authModal .password-container {
+        margin-bottom: 1rem; /* Отступ между полями */
+    }
+}
+
+/* Стили для фильтров дашборда */
+#dashboard .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#dashboardFilterMonth.hidden,
+#dashboardFilterYear.hidden {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    #dashboard .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+#workerTasksList button {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Стили для фильтров аналитики */
+#analytics .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#analyticsYear.hidden,
+#analyticsMonth.hidden {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    #analytics .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Увеличение модального окна регистрации для компьютеров */
+@media (min-width: 768px) {
+    #registerModal .modal-content.auth-content {
+        width: 60vw;
+        max-width: 500px;
+        height: 60vh;
+        max-height: 500px;
+        padding: 2rem;
+    }
+
+    #registerModal .modal-scrollable {
+        max-height: calc(60vh - 120px); /* Учитываем заголовок и футер */
+    }
+
+    #registerModal .auth-input,
+    #registerModal .auth-btn {
+        padding: 0.7rem;
+        font-size: 1.1rem;
+    }
+
+    #registerModal .auth-buttons {
+        margin-top: 1.5rem;
+    }
+
+    #registerModal .password-container {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Увеличение модального окна смены пароля для компьютеров */
+@media (min-width: 768px) {
+    #passwordModal .modal-content.auth-content {
+        width: 60vw;
+        max-width: 500px;
+        height: 60vh;
+        max-height: 500px;
+        padding: 2rem;
+    }
+
+    #passwordModal .modal-scrollable {
+        max-height: calc(60vh - 120px);
+    }
+
+    #passwordModal .auth-input,
+    #passwordModal .auth-btn {
+        padding: 0.7rem;
+        font-size: 1.1rem;
+    }
+
+    #passwordModal .auth-buttons {
+        margin-top: 1.5rem;
+    }
+
+    #passwordModal .password-container {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Увеличение отступов для заголовков */
+h2, h3, .section-title {
+    margin-bottom: 0.7rem !important; /* Увеличенный нижний отступ */
+}
+
+/* Заголовки в модальных окнах */
+.modal-content h2,
+.modal-content h3 {
+    margin-bottom: 0.7rem !important;
+}
+
+/* Стили для модального окна управления типами и частями */
+#clothingPartManagerModal .input-group {
+    margin-bottom: 1.5rem;
+}
+
+#clothingPartManagerModal .input-group h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#clothingPartManagerModal .input-group input,
+#clothingPartManagerModal .input-group select {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem;
+    font-size: 1rem;
+}
+
+#clothingPartManagerModal .input-group button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+}
+
+#clothingTypeList li,
+#partTypeList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+#clothingTypeList li button,
+#partTypeList li button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Стили для модального окна редактирования задачи */
+#editTaskModal .input-group select,
+#editTaskModal .input-group input,
+#editTaskModal .input-group textarea {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem;
+    font-size: 1rem;
+}
+
+#editTaskModal .input-group textarea {
+    min-height: 80px;
+}
+
+#editTaskModal .input-group button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+}
+
+/* Скрытие элементов */
+.hidden {
+    display: none !important;
+}
+
+/* Темные темы */
+body.dark #clothingTypeList li,
+body.dark #partTypeList li,
+body.midnight #clothingTypeList li,
+body.midnight #partTypeList li,
+body.forest #clothingTypeList li,
+body.forest #partTypeList li,
+body.slate #clothingTypeList li,
+body.slate #partTypeList li {
+    border-color: #4a5568;
+    background-color: #2d3748;
+}
+
+/* Сканирование */
+.scan-btn {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.scan-btn:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+}
+
+.expense-group {
+    margin-bottom: 1.2rem;
+}
+
+.expense-group h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.modal-close-btn {
+    display: block;
+    width: 100%;
+    padding: 0.6rem;
+    background-color: #f87171;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: #ef4444;
+    transform: scale(1.05);
+}
+
+#scanPreview {
+    margin-bottom: 0.8rem;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

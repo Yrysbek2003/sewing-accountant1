@@ -1,0 +1,23 @@
+{
+  "name": "sewing-accountant",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yrysbek2003/sewing-accountant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yrysbek2003/sewing-accountant/issues"
+  },
+  "homepage": "https://github.com/Yrysbek2003/sewing-accountant#readme",
+  "description": "",
+  "dependencies": {
+    "firebase": "^11.8.1"
+  }
+}
